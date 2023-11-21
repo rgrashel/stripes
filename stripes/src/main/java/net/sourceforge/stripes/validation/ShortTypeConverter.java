@@ -14,8 +14,8 @@
  */
 package net.sourceforge.stripes.validation;
 
-import java.util.Collection;
 import java.text.NumberFormat;
+import java.util.Collection;
 
 /**
  * Basic type converter for converting strings to short integers.
@@ -23,37 +23,37 @@ import java.text.NumberFormat;
  * @author Tim Fennell
  */
 public class ShortTypeConverter extends NumberTypeConverterSupport implements TypeConverter<Short> {
-    /**
-     *
-     * @param input
-     * @param errors
-     * @return Integer an Integer object if one can be parsed from the input
-     */
-    public Short convert(String input,
-                         Class<? extends Short> targetType,
-                         Collection<ValidationError> errors) {
+  /**
+   * Converts the input to an object of type Short.
+   *
+   * @param input the String to convert into a single Short
+   * @param errors the collection to which validation errors should be added
+   * @return Short a Short object if one can be parsed from the input
+   */
+  public Short convert(
+      String input, Class<? extends Short> targetType, Collection<ValidationError> errors) {
 
-        Number number = parse(input, errors);
-        Short retval = null;
+    Number number = parse(input, errors);
+    Short returnValue = null;
 
-        if (errors.size() == 0) {
-            long output = number.longValue();
+    if (errors.isEmpty()) {
+      long output = number.longValue();
 
-            if (output < Short.MIN_VALUE || output > Short.MAX_VALUE) {
-                errors.add( new ScopedLocalizableError("converter.short", "outOfRange",
-                                                       Short.MIN_VALUE, Short.MAX_VALUE) );
-            }
-            else {
-                retval = new Short((short) output);
-            }
-        }
-
-        return retval;
+      if (output < Short.MIN_VALUE || output > Short.MAX_VALUE) {
+        errors.add(
+            new ScopedLocalizableError(
+                "converter.short", "outOfRange", Short.MIN_VALUE, Short.MAX_VALUE));
+      } else {
+        returnValue = (short) output;
+      }
     }
 
-    /** Overridden to return integer instances instead. */
-    @Override
-    protected NumberFormat[] getNumberFormats() {
-        return new NumberFormat[] { NumberFormat.getIntegerInstance(this.getLocale()) };
-    }
+    return returnValue;
+  }
+
+  /** Overridden to return integer instances instead. */
+  @Override
+  protected NumberFormat[] getNumberFormats() {
+    return new NumberFormat[] {NumberFormat.getIntegerInstance(this.getLocale())};
+  }
 }

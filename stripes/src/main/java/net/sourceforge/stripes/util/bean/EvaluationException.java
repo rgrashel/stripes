@@ -14,24 +14,26 @@
  */
 package net.sourceforge.stripes.util.bean;
 
+import java.io.Serial;
+
 /**
- * Exception that is raised when a parsed expression cannot be evaluated against a bean
- * for any reason.  In the special case where no such property exists a specific subclass
- * of this exception is thrown.
+ * Exception that is raised when a parsed expression cannot be evaluated against a bean for any
+ * reason. In the special case where no such property exists a specific subclass of this exception
+ * is thrown.
  *
  * @author Tim Fennell
  * @since Stripes 1.4
  */
 public class EvaluationException extends ExpressionException {
-	private static final long serialVersionUID = 1L;
-	
-    /** Constructs an exception with the supplied message. */
-    public EvaluationException(String message) {
-        super(message);
-    }
+  @Serial private static final long serialVersionUID = 1L;
 
-    /** Constructs an exception with the supplied message and causing exception. */
-    public EvaluationException(String message, Throwable cause) {
-        super(message, cause);
-    }
+  /** Constructs an exception with the supplied message. */
+  public EvaluationException(String message) {
+    super(message);
+  }
+
+  /** Constructs an exception with the supplied message and causing exception. */
+  public EvaluationException(String message, Throwable cause) {
+    super(message, cause);
+  }
 }

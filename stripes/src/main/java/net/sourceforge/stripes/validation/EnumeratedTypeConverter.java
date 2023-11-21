@@ -23,27 +23,25 @@ import java.util.Locale;
  *
  * @author Tim Fennell
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked", "rawtypes"})
 public class EnumeratedTypeConverter implements TypeConverter<Enum> {
 
-    /**
-     * Does nothing at present due to the fact that enumerated types don't support localization
-     * all that well. 
-     */
-    public void setLocale(Locale locale) {
-        // Do nothing
-    }
+  /**
+   * Does nothing at present due to the fact that enumerated types don't support localization all
+   * that well.
+   */
+  public void setLocale(Locale locale) {
+    // Do nothing
+  }
 
-	public Enum convert(String input,
-                        Class<? extends Enum> targetType,
-                        Collection<ValidationError> errors) {
+  public Enum convert(
+      String input, Class<? extends Enum> targetType, Collection<ValidationError> errors) {
 
-        try {
-            return Enum.valueOf(targetType, input);
-        }
-        catch (IllegalArgumentException iae) {
-            errors.add(new ScopedLocalizableError("converter.enum", "notAnEnumeratedValue"));
-            return null;
-        }
+    try {
+      return Enum.valueOf(targetType, input);
+    } catch (IllegalArgumentException iae) {
+      errors.add(new ScopedLocalizableError("converter.enum", "notAnEnumeratedValue"));
+      return null;
     }
+  }
 }
