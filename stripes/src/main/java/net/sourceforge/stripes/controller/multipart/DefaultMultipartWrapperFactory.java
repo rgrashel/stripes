@@ -27,8 +27,8 @@ import net.sourceforge.stripes.util.Log;
 /**
  * Default implementation of a factory for MultipartWrappers. Looks up a class name in Configuration
  * under the key specified by {@link #WRAPPER_CLASS_NAME}. If no class name is configured, defaults
- * to the {@link CommonsMultipartWrapper}. An additional configuration parameter is supported to specify
- * the maximum post size allowable.
+ * to the {@link CommonsMultipartWrapper}. An additional configuration parameter is supported to
+ * specify the maximum post size allowable.
  *
  * @author Tim Fennell
  * @since Stripes 1.4
