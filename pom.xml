@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.sourceforge.stripes</groupId>
 	<artifactId>stripes-parent</artifactId>
-	<version>1.6.0-JakartaEE10</version>
+	<version>1.6.1-JakartaEE10</version>
 	<packaging>pom</packaging>
 
 	<modules>
